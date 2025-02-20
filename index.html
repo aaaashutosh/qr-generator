@@ -7,19 +7,43 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <nav class="navbar">
-        <button class="button" onclick="window.location.href='https://aashutoshkhatiwada.com.np/'">Visit Author</button>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
     </nav>
+
     <div class="container">
         <h1>QR Code Generator</h1>
-        <input type="text" id="linkInput" placeholder="Enter URL">
-        <input type="file" id="imageInput" accept="image/*">
-        <button onclick="generateQRCode()">Generate QR Code</button>
+
+        <div>
+            <button onclick="showWiFiForm()">Generate WiFi QR</button>
+            <button onclick="showURLForm()">Generate URL QR</button>
+        </div>
+
+        <div id="wifiForm" style="display: none;">
+            <input type="text" id="wifiSSID" placeholder="Enter WiFi SSID (Username)">
+            <input type="password" id="wifiPassword" placeholder="Enter WiFi Password">
+            <button onclick="generateWiFiQRCode()">Generate</button>
+        </div>
+
+        <div id="urlForm" style="display: none;">
+            <input type="text" id="linkInput" placeholder="Enter URL or link">
+            <button onclick="generateURLQRCode()">Generate</button>
+        </div>
+
         <div id="qrcode"></div>
-        <p>Made with ❤️</p>
-        <p class="author">Author: Aashutosh Khatiwada</p>
+
+        <button id="downloadBtn" style="display: none;" onclick="downloadQRCode()">Download QR Code</button>
+
+        <p class="author">Developed by <a href="https://aashutoshkhatiwada.com.np/" target="_blank">Aashutosh Khatiwada</a></p>
     </div>
+
     <script src="https://cdn.jsdelivr.net/npm/qr-code-styling/lib/qr-code-styling.js"></script>
     <script src="script.js"></script>
+
 </body>
 </html>
